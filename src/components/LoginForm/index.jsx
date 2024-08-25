@@ -1,6 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { LOGIN_FORM_SCHEMA } from "../../utils/validationSchemas";
-
+import styles from "./LoginForm.module.sass";
 function LoginForm() {
   const initialValues = { login: "", password: "" };
 
@@ -16,25 +16,42 @@ function LoginForm() {
       validationSchema={LOGIN_FORM_SCHEMA}
     >
       {(formikProps) => (
-        <Form>
+        <Form className={styles.loginForm}>
+          <h2 className={styles.loginTitle}>LOGIN TO YOUR ACCOUNT</h2>
           <div>
-            <label>
+            <label className={styles.loginLabel}>
               <Field
+                className={styles.loginInput}
                 type="text"
                 name="login"
                 placeholder="Your Login"
                 autoFocus
               />
             </label>
-            <ErrorMessage name="login" component="span" />
+            <ErrorMessage
+              name="login"
+              component="span"
+              className={styles.loginError}
+            />
           </div>
           <div>
-            <label>
-              <Field type="text" name="password" placeholder="Your Password" />
+            <label className={styles.loginLabel}>
+              <Field
+                className={styles.loginInput}
+                type="text"
+                name="password"
+                placeholder="Your Password"
+              />
             </label>
-            <ErrorMessage name="password" component="span" />
+            <ErrorMessage
+              name="password"
+              component="span"
+              className={styles.loginError}
+            />
           </div>
-          <button type="submit">LOGIN</button>
+          <button type="submit" className={styles.loginBtn}>
+            LOGIN
+          </button>
         </Form>
       )}
     </Formik>
