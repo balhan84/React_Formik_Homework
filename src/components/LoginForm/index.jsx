@@ -1,7 +1,9 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { LOGIN_FORM_SCHEMA } from "../../utils/validationSchemas";
+import { Link, BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import classNames from "classnames";
 import styles from "./LoginForm.module.sass";
+import Signup from "./Signup";
 
 function LoginForm() {
   const initialValues = { login: "", password: "" };
@@ -32,6 +34,15 @@ function LoginForm() {
         });
         return (
           <Form className={styles.loginForm}>
+            {/* <Router>
+              <Link to="/Signup" className={styles.signupBtn}>
+                Signup
+              </Link>
+
+              <Routes>
+                <Route path="/Signup" element={<Signup />} />
+              </Routes>
+            </Router> */}
             <h2 className={styles.loginTitle}>LOGIN TO YOUR ACCOUNT</h2>
             <div>
               <label className={styles.loginLabel}>
